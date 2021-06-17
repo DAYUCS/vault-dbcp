@@ -11,7 +11,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+import com.zaxxer.hikari.HikariDataSource;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -37,16 +37,7 @@ public class Customer extends HttpServlet {
 		ResultSet rs = null;
 		try {
 			ctx = new InitialContext();
-			BasicDataSource ds = (BasicDataSource) ctx.lookup("java:/comp/env/jdbc/postgres");
-			
-			//BasicDataSource ds = new BasicDataSource();
-			
-			//ds.setUrl("jdbc:postgresql://localhost:5432/testuser");
-			//ds.setDriverClassName("org.postgresql.Driver");
-			ds.setUsername("testuser");
-			ds.setPassword("testpassword");
-			ds.setMinIdle(2);
-			ds.setMaxIdle(10);
+			HikariDataSource ds = (HikariDataSource) ctx.lookup("java:/comp/env/jdbc/postgres");
 
 			con = ds.getConnection();
 			stmt = con.prepareStatement("select id, name, address from customer");
