@@ -64,7 +64,8 @@ public class Customer extends HttpServlet {
 			// lets print some DB information
 			out.print("<h3>Database Details</h3>");
 			out.print("Database Product: " + con.getMetaData().getDatabaseProductName() + "<br/>");
-			out.print("Database Driver: " + con.getMetaData().getDriverName());
+			out.print("Database Driver: " + con.getMetaData().getDriverName() + "<br/>");
+			out.print("Database User: " + con.getMetaData().getUserName());			
 			out.print("</html>");
 
 		} catch (NamingException e) {
