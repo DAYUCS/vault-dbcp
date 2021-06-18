@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/vault-dbcp">
-	<Resource name="jdbc/postgres" auth="Container"
+	<Resource name="jdbc/postgres" auth="Application"
 		factory="com.zaxxer.hikari.HikariJNDIFactory"
 		type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
 		jdbcUrl="jdbc:postgresql://localhost:5432/testuser" 

@@ -27,7 +27,7 @@ public class VaultListener implements ServletContextListener {
 	 */
 	public void contextInitialized(ServletContextEvent sce) {
 		scheduler = Executors.newSingleThreadScheduledExecutor();
-		scheduler.scheduleAtFixedRate(new VaultRefresh(), 0, 50, TimeUnit.SECONDS);
+		scheduler.scheduleAtFixedRate(new JDBCRefresher(), 0, 55, TimeUnit.SECONDS);
 	}
 
 }
